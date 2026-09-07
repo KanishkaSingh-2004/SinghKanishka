@@ -25,7 +25,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
           initial={{ opacity: 0, scale: 0.95, y: 15 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 15 }}
-          className="w-full max-w-4xl max-h-[92vh] bg-white border border-neutral-200 rounded-2xl shadow-2xl flex flex-col overflow-hidden"
+          className="w-full max-w-4xl h-[90vh] bg-white border border-neutral-200 rounded-2xl shadow-2xl flex flex-col overflow-hidden"
         >
           {/* Header */}
           <div className="bg-slate-900 text-white px-5 py-3.5 flex items-center justify-between">
@@ -85,15 +85,15 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
           </div>
 
           {/* Body Viewer */}
-          <div className="flex-1 overflow-y-auto p-4 md:p-6 bg-slate-100 flex justify-center items-start scrollbar-thin">
+          <div className="flex-1 overflow-hidden bg-slate-100 relative">
             <div
-              className="bg-white rounded-xl shadow-xl overflow-hidden border border-neutral-200 transition-transform duration-200 max-w-full"
-              style={{ transform: `scale(${zoomLevel})`, transformOrigin: "top center" }}
+              className="w-full h-full bg-white transition-transform duration-200"
+              style={{ transform: `scale(${zoomLevel})`, transformOrigin: "center center" }}
             >
-              <img
-                src="/resume-preview.png"
-                alt="Singh Kanishka Resume Document"
-                className="w-full h-auto max-w-[800px] object-contain"
+              <iframe
+                src={profileData.resumeUrl}
+                title="Singh Kanishka Resume Document"
+                className="w-full h-full border-0"
               />
             </div>
           </div>
